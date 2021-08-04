@@ -61,15 +61,18 @@ $.getJSON("Loan_Portfolio.geojson",function(data){
   	L.geoJson(data, {
 		style: function(feature){
 			var conditionalColor,
-			density = feature.properties.pop_borrowed;
-				if ( density > 100000 ) conditionalColor = "#006837";
-				else if ( density < 100000 ) conditionalColor = "#31a354";
-				else if ( density > 0 ) conditionalColor = "#ffffcc";
+			average = feature.properties.avg_balance;
+				if ( average > 26000 ) conditionalColor = "#f1eef6";
+				else if ( average < 31000 ) conditionalColor = "#045a8d";
+				else if ( average > 36000 ) conditionalColor = "#a6bddb";
+				else if ( average > 41000 ) conditionalColor = "#74a9cf";
+				else if ( average > 46000 ) conditionalColor = "#2b8cbe";
+				else if ( average > 51000 ) conditionalColor = "#045a8d";
 				else conditionalColor = "#f7f7f7";  // no data
 				return { color: "#999", weight: 1, fillColor: conditionalColor, fillOpacity: .6 };
 				},
 				onEachFeature: function( feature, layer ){
-				    layer.bindPopup( "Neighborhood: " + feature.properties.CA + "<br/>" + "Hardship Index Score: " + feature.properties.HI )
+				    layer.bindPopup( feature.properties.NAME + "<br/>" + "Balance (in billions): " + feature.properties.loan_balance )
 				}
   					}  ).addTo(map).bringToBack();
 				}); 
