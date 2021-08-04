@@ -62,13 +62,13 @@ $.getJSON("Loan_Portfolio.geojson",function(data){
 		style: function(feature){
 			var conditionalColor,
 			average = feature.properties.avg_balance;
-				if ( average > 26000 ) conditionalColor = "#f1eef6";
-				else if ( average > 31000 ) conditionalColor = "#045a8d";
-				else if ( average > 36000 ) conditionalColor = "#a6bddb";
-				else if ( average > 41000 ) conditionalColor = "#74a9cf";
-				else if ( average > 46000 ) conditionalColor = "#2b8cbe";
-				else if ( average > 51000 ) conditionalColor = "#045a8d";
-				else conditionalColor = "#f7f7f7";  // no data
+				if ( average > 51000 ) conditionalColor = "#54278f";
+				else if ( average > 46000 ) conditionalColor = "#756bb1";
+				else if ( average > 41000 ) conditionalColor = "#9e9ac8";
+				else if ( average > 36000 ) conditionalColor = "#bcbddc";
+				else if ( average > 31000 ) conditionalColor = "#dadaeb";
+				else if ( average > 26000 ) conditionalColor = "#f2f0f7";
+				else conditionalColor = "#f7f7f7";  
 				return { color: "#999", weight: 1, fillColor: conditionalColor, fillOpacity: .6 };
 				},
 				onEachFeature: function( feature, layer ){
