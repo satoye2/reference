@@ -61,11 +61,9 @@ $.getJSON("LoanPortfolio.geojson",function(data){
   	L.geoJson(data, {
 		style: function(feature){
 			var conditionalColor,
-			density = feature.properties.HI;
-				if ( density > 80 ) conditionalColor = "#006837";
-				else if ( density > 60 ) conditionalColor = "#31a354";
-				else if ( density > 40 ) conditionalColor = "#78c679";
-				else if ( density > 20 ) conditionalColor = "#c2e699";
+			density = feature.properties.pop_borrowed;
+				if ( density > 100000 ) conditionalColor = "#006837";
+				else if ( density < 100000 ) conditionalColor = "#31a354";
 				else if ( density > 0 ) conditionalColor = "#ffffcc";
 				else conditionalColor = "#f7f7f7";  // no data
 				return { color: "#999", weight: 1, fillColor: conditionalColor, fillOpacity: .6 };
