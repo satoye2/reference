@@ -57,7 +57,7 @@ var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/to
 }).addTo(map);
 
 
-$.getJSON("ChicagoHardshipIndex.geojson",function(data){
+$.getJSON("LoanPortfolio.geojson",function(data){
   	L.geoJson(data, {
 		style: function(feature){
 			var conditionalColor,
